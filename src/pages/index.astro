@@ -2,11 +2,11 @@
 import Base from '../layouts/Base.astro';
 import EditionItem from '../components/EditionItem.astro';
 import SubscribeBox from '../components/SubscribeBox.astro';
-import { getPosts, formatDate, groupByTopic, excerpt } from '../lib/posts';
+import { getPosts, formatDate, groupByTopic, previewParagraphs } from '../lib/posts';
 
 const posts = await getPosts();
 const [lead, ...rest] = posts;
-const leadExcerpt = lead ? excerpt(lead, 260) : undefined;
+const leadPreview = lead ? previewParagraphs(lead) : [];
 const edition = rest.slice(0, 4);
 const topics = groupByTopic(posts);
 ---
@@ -30,7 +30,7 @@ const topics = groupByTopic(posts);
               <img src={lead.data.cover} alt={lead.data.coverAlt ?? ''} width="1200" height="675" loading="eager" />
             </figure>
           )}
-          {leadExcerpt && <p class="excerpt">{leadExcerpt}</p>}
+          {leadPreview.map((para) => <p class="excerpt">{para}</p>)}
           <a class="more-link" href={`/posts/${lead.id}`}>
             Continue reading
           </a>

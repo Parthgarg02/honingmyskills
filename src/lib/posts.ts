@@ -47,6 +47,35 @@ export function excerpt(post: Post, max = 200): string | undefined {
   return undefined;
 }
 
+/**
+ * About the first half of a post as plain-text paragraphs, for the home page.
+ * Always whole paragraphs; skips images, lists, quotes and raw HTML.
+ */
+export function previewParagraphs(post: Post): string[] {
+  const clean = (raw: string) =>
+    raw
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/[*_`]+/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  const paras = (post.body ?? '')
+    .split(/\n\s*\n/)
+    .map((r) => r.trim())
+    .filter((p) => p && !/^(!|<|- |\d+\. |>|#)/.test(p))
+    .map(clean)
+    .filter(Boolean);
+  const words = (t: string) => t.split(/\s+/).length;
+  const half = paras.reduce((n, p) => n + words(p), 0) / 2;
+  const out: string[] = [];
+  let count = 0;
+  for (const p of paras) {
+    out.push(p);
+    count += words(p);
+    if (count >= half) break;
+  }
+  return out;
+}
+
 export interface Topic {
   name: string;
   slug: string;
