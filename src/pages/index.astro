@@ -2,12 +2,11 @@
 import Base from '../layouts/Base.astro';
 import EditionItem from '../components/EditionItem.astro';
 import SubscribeBox from '../components/SubscribeBox.astro';
-import { getPosts, formatDate, groupByTopic, excerpt, coverOf } from '../lib/posts';
+import { getPosts, formatDate, groupByTopic, excerpt } from '../lib/posts';
 
 const posts = await getPosts();
 const [lead, ...rest] = posts;
 const leadExcerpt = lead ? excerpt(lead, 260) : undefined;
-const leadCover = lead ? coverOf(lead) : undefined;
 const edition = rest.slice(0, 4);
 const topics = groupByTopic(posts);
 ---
@@ -26,11 +25,9 @@ const topics = groupByTopic(posts);
           <div class="dateline">
             By Parth Garg · {formatDate(lead.data.date)}
           </div>
-          {leadCover && (
+          {lead.data.cover && (
             <figure class="cover">
-              <a href={`/posts/${lead.id}`}>
-                <img src={leadCover.src} alt={leadCover.alt} loading="eager" />
-              </a>
+              <img src={lead.data.cover} alt={lead.data.coverAlt ?? ''} width="1200" height="675" loading="eager" />
             </figure>
           )}
           {leadExcerpt && <p class="excerpt">{leadExcerpt}</p>}

@@ -47,16 +47,6 @@ export function excerpt(post: Post, max = 200): string | undefined {
   return undefined;
 }
 
-/**
- * The picture that represents a post: the front-matter cover if set,
- * otherwise the first markdown image in the body.
- */
-export function coverOf(post: Post): { src: string; alt: string } | undefined {
-  if (post.data.cover) return { src: post.data.cover, alt: post.data.coverAlt ?? '' };
-  const m = (post.body ?? '').match(/!\[([^\]]*)\]\(([^)\s]+)[^)]*\)/);
-  return m ? { src: m[2], alt: m[1] } : undefined;
-}
-
 export interface Topic {
   name: string;
   slug: string;
