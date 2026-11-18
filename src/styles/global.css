@@ -175,6 +175,21 @@ img {
   width: 100%;
   border: 1px solid var(--ink);
 }
+.cover a {
+  display: block;
+}
+.lead .cover img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.story .sthumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  margin-bottom: 6px;
+}
 .cover figcaption {
   margin-top: 8px;
   font-size: 14px;

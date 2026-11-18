@@ -2,10 +2,7 @@
 title: "Captivate: Key Takeaways"
 date: 2021-06-29
 topic: "Books"
-draft: true
 ---
-
-<!-- Imported from Tumblr export. The original had no title (working title above) and is only the introduction. -->
 
 Relations are the most important thing in anyone’s life. And its tough to please everyone we want to right?
 

@@ -2,7 +2,6 @@
 title: "8X8 Grid Can Develop Your Logical Thinking More Than Anything Else"
 date: 2021-04-19
 topic: "Games"
-draft: true
 ---
 
 Have you ever played the game Chess. The game is highly underrated these days, but this game can challenge your brain each and every time you play. There is no one way of winning this game, as every time your opponent will also be thinking differently. There is no one solution to anything, as different minds can get you different solutions to different problems.

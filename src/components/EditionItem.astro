@@ -1,13 +1,15 @@
 ---
-import { formatDate, type Post } from '../lib/posts';
+import { formatDate, coverOf, type Post } from '../lib/posts';
 
 interface Props {
   post: Post;
 }
 const { post } = Astro.props;
+const cover = coverOf(post);
 ---
 
 <a class="story" href={`/posts/${post.id}`}>
+  {cover && <img class="sthumb" src={cover.src} alt={cover.alt} loading="lazy" />}
   <span class="kicker">{post.data.topic}</span>
   <span class="stitle">{post.data.title}</span>
   <span class="dateline">{formatDate(post.data.date)}</span>

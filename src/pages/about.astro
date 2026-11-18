@@ -2,26 +2,60 @@
 import Base from '../layouts/Base.astro';
 import SubscribeBox from '../components/SubscribeBox.astro';
 import { SITE } from '../consts';
+
+const hobbies = [
+  { name: 'Tennis', note: 'I have written about why it is a sport for a lifetime.', href: '/posts/the-sport-for-a-lifetime' },
+  { name: 'Photography', note: 'I am still learning, and I share what I pick up.', href: '/topics/photography' },
+  { name: 'Board games', note: 'Games that make me think, and a few I have written about.', href: '/topics/games' },
+  { name: 'Trekking', note: 'Getting out of the city and onto a trail.' },
+  { name: 'Exploring new experiences', note: 'Always up for trying something I have not done before.' },
+];
 ---
 
-<Base title="About" description={`About ${SITE.title} and ${SITE.author}.`}>
+<Base title="About" description={`About ${SITE.author}: a chartered accountant and co-founder from Lucknow who writes about books, history and ideas.`}>
   <article class="article">
     <header class="article-head">
       <div class="kicker">About</div>
-      <h1>{SITE.author}, writing from Lucknow.</h1>
+      <h1>Hi, I’m {SITE.author}, writing from Lucknow.</h1>
     </header>
     <div class="prose">
       <p>
-        {SITE.title} is a blog about books, history and ideas, and about what I learn along the way. I like exploring new
-        things, and I write to understand them properly.
+        By profession I am a Chartered Accountant. I am also a co-founder of Dazzlecrest, a jewellery brand.
+        This blog is where I get to be curious about everything else.
       </p>
+
+      <h2>Why this blog</h2>
       <p>
-        You will find book notes, stories from history, a few experiments in thinking, and some random fun. New posts
-        appear here first.
+        {SITE.title} started in {SITE.established} as a place to write down what I was learning, so that I could
+        understand it properly and share it with anyone who wanted to read along. You will find book notes, stories from
+        history, a few experiments in thinking, and some random fun. I like exploring new things, and writing is how I make
+        sense of them.
       </p>
+
+      <h2>Outside of work</h2>
+      <p>When I am away from the desk, you will usually find me doing one of these:</p>
+      <ul class="hobbies">
+        {
+          hobbies.map((h) => (
+            <li>
+              <strong>{h.href ? <a href={h.href}>{h.name}</a> : h.name}.</strong> {h.note}
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Say hello</h2>
       <p>
-        <a href={SITE.subscribeUrl} rel="noopener">Subscribe by email</a> to get them as they are published, or follow the
-        <a href="/rss.xml">RSS feed</a>.
+        <a href={SITE.subscribeUrl} rel="noopener">Subscribe by email</a> to get new posts as they are published, or follow
+        the <a href="/rss.xml">RSS feed</a>. You can also find me on
+        {
+          SITE.social.map((s, i) => (
+            <>
+              {i > 0 && (i === SITE.social.length - 1 ? ' and ' : ', ')}
+              <a href={s.href} rel="noopener me">{s.label}</a>
+            </>
+          ))
+        }.
       </p>
     </div>
   </article>

@@ -2,10 +2,7 @@
 title: "The Services I Use for My Website"
 date: 2021-04-26
 topic: "My journey"
-draft: true
 ---
-
-<!-- Imported from Tumblr export. The original had no title (working title above) and stops partway. -->
 
 As i said i will let you guys know which services i have used on my website, or i use for my website.
 
