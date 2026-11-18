@@ -1,0 +1,14 @@
+---
+import { formatDate, type Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+---
+
+<a class="story" href={`/posts/${post.id}`}>
+  <span class="kicker">{post.data.topic}</span>
+  <span class="stitle">{post.data.title}</span>
+  <span class="dateline">{formatDate(post.data.date)}</span>
+</a>

@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, groupByTopic } from '../../lib/posts';
+
+const topics = groupByTopic(await getPosts());
+---
+
+<Base title="Topics" description="Browse Honing My Skills by topic.">
+  <div class="page-head">
+    <h1>Topics</h1>
+    <p>Browse the writing by subject.</p>
+  </div>
+  <ul class="topic-list">
+    {
+      topics.map((t) => (
+        <li>
+          <a href={`/topics/${t.slug}`}>
+            <span>{t.name}</span>
+            <span class="count">
+              {t.posts.length} {t.posts.length === 1 ? 'post' : 'posts'}
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div style="height:56px"></div>
+</Base>

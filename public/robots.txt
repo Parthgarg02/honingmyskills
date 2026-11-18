@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://honingmyskills.com/sitemap-index.xml

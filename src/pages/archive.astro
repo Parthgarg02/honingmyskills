@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPosts, formatDate } from '../lib/posts';
+
+const posts = await getPosts();
+const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
+---
+
+<Base title="Archive" description="Every post on Honing My Skills, newest first.">
+  <div class="page-head">
+    <h1>Archive</h1>
+    <p>Every post, newest first.</p>
+  </div>
+  {
+    years.map((year) => (
+      <section aria-labelledby={`y-${year}`}>
+        <h2 class="year" id={`y-${year}`}>
+          {year}
+        </h2>
+        {posts
+          .filter((p) => p.data.date.getUTCFullYear() === year)
+          .map((p) => (
+            <a class="entry" href={`/posts/${p.id}`}>
+              <span class="dateline">{formatDate(p.data.date, 'short')}</span>
+              <span class="etitle">{p.data.title}</span>
+              <span class="topic-label">{p.data.topic}</span>
+            </a>
+          ))}
+      </section>
+    ))
+  }
+  <div style="height:56px"></div>
+</Base>

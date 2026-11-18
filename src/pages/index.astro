@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import EditionItem from '../components/EditionItem.astro';
+import SubscribeBox from '../components/SubscribeBox.astro';
+import { getPosts, formatDate, groupByTopic, excerpt } from '../lib/posts';
+
+const posts = await getPosts();
+const [lead, ...rest] = posts;
+const leadExcerpt = lead ? excerpt(lead, 260) : undefined;
+const edition = rest.slice(0, 4);
+const topics = groupByTopic(posts);
+---
+
+<Base>
+  {
+    lead && (
+      <section class="front" aria-label="Latest posts">
+        <article class="lead">
+          <div class="kicker">
+            <a href={`/topics/${topics.find((t) => t.name === lead.data.topic)?.slug}`}>{lead.data.topic}</a>
+          </div>
+          <h2>
+            <a href={`/posts/${lead.id}`}>{lead.data.title}</a>
+          </h2>
+          <div class="dateline">
+            By Parth Garg · {formatDate(lead.data.date)}
+          </div>
+          {lead.data.cover && (
+            <figure class="cover">
+              <img src={lead.data.cover} alt={lead.data.coverAlt ?? ''} width="1200" height="675" loading="eager" />
+            </figure>
+          )}
+          {leadExcerpt && <p class="excerpt">{leadExcerpt}</p>}
+          <a class="more-link" href={`/posts/${lead.id}`}>
+            Continue reading
+          </a>
+        </article>
+
+        <aside class="edition" aria-labelledby="edition-heading">
+          <h2 class="section-title" id="edition-heading">
+            Also in this edition
+          </h2>
+          {edition.map((post) => <EditionItem post={post} />)}
+          <a class="more-link" href="/archive" style="margin-top:8px">
+            Browse the full archive
+          </a>
+        </aside>
+      </section>
+    )
+  }
+
+  <nav class="topics-strip" aria-label="Topics">
+    <strong>Topics</strong>
+    {topics.map((t) => <a href={`/topics/${t.slug}`}>{t.name}</a>)}
+  </nav>
+
+  <SubscribeBox />
+</Base>

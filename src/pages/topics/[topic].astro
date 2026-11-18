@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, groupByTopic, formatDate } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const topics = groupByTopic(await getPosts());
+  return topics.map((topic) => ({ params: { topic: topic.slug }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+---
+
+<Base title={topic.name} description={`Posts on ${topic.name} from Honing My Skills.`}>
+  <div class="page-head">
+    <div class="kicker"><a href="/topics">Topic</a></div>
+    <h1>{topic.name}</h1>
+  </div>
+  <div style="margin-top:24px">
+    {
+      topic.posts.map((p) => (
+        <a class="entry" href={`/posts/${p.id}`}>
+          <span class="dateline">{formatDate(p.data.date, 'short')}</span>
+          <span class="etitle">{p.data.title}</span>
+          <span></span>
+        </a>
+      ))
+    }
+  </div>
+  <div style="height:56px"></div>
+</Base>

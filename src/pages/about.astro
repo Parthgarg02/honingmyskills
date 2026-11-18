@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import SubscribeBox from '../components/SubscribeBox.astro';
+import { SITE } from '../consts';
+---
+
+<Base title="About" description={`About ${SITE.title} and ${SITE.author}.`}>
+  <article class="article">
+    <header class="article-head">
+      <div class="kicker">About</div>
+      <h1>{SITE.author}, writing from Lucknow.</h1>
+    </header>
+    <div class="prose">
+      <p>
+        {SITE.title} is a blog about books, history and ideas, and about what I learn along the way. I like exploring new
+        things, and I write to understand them properly.
+      </p>
+      <p>
+        You will find book notes, stories from history, a few experiments in thinking, and some random fun. New posts
+        appear here first.
+      </p>
+      <p>
+        <a href={SITE.subscribeUrl} rel="noopener">Subscribe by email</a> to get them as they are published, or follow the
+        <a href="/rss.xml">RSS feed</a>.
+      </p>
+    </div>
+  </article>
+  <SubscribeBox />
+</Base>

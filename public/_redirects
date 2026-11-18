@@ -1,0 +1,27 @@
+# Keeps old Tumblr links working after the move (Cloudflare Pages reads this file).
+/post/714280373864087552/fall-of-giants-by-ken-follett  /posts/fall-of-giants-by-ken-follett  301
+/post/707153106357649408/brothers-at-war  /posts/brothers-at-war  301
+/post/705775140531798016/first-ruler-of-moghul-empire  /posts/first-ruler-of-moghul-empire  301
+/post/703239064902680576/perception-census  /posts/perception-census  301
+/post/655942675064913920/a-hydrogen-bomb  /posts/a-hydrogen-bomb  301
+/post/653299635792855040/amrut-deshmukh-on-a-mission  /posts/amrut-deshmukh-on-a-mission  301
+/post/648960543892373504/recommendations-from-psychologists  /posts/recommendations-from-psychologists  301
+/post/648371350459891712/who-owns-our-social-media-data  /posts/who-owns-our-social-media-data  301
+/post/648076995332292608/have-you-ever-thought-what-do-born-blind-people  /posts/what-do-born-blind-people-see-in-dreams  301
+/post/646712832426147840/ikigai-living-to-fullest  /posts/ikigai-living-to-fullest  301
+/post/644436128389332993/capture-the-world-through-new-frame  /posts/capture-the-world-through-new-frame  301
+/post/643017765426544640/how-would-you-like-to-read-someones-mind  /posts/how-would-you-like-to-read-someones-mind  301
+/post/642806175111495680/my-journey-towards-blogging  /posts/my-journey-towards-blogging  301
+/post/642467316638089216/the-sport-for-a-lifetime  /posts/the-sport-for-a-lifetime  301
+/post/642293017445826560/would-you-believe-if-i-say-that-you-will-never  /posts/never-charge-your-phone-again  301
+/post/642121555143524352/long-due-update  /posts/long-due-update  301
+/post/641486404644405248/our-flag-our-dignity  /posts/our-flag-our-dignity  301
+/post/640807988313079808/historical-winning-moment-for-team-india  /posts/historical-winning-moment-for-team-india  301
+/post/640382247316455424/active-body-active-mind  /posts/active-body-active-mind  301
+/post/639944547348217856/if-you-win-you-win-if-you-lose-you-get-the  /posts/if-you-win-you-win-if-you-lose  301
+/post/639908681558982656/the-queens-gambit-during-lockdown-i-started  /posts/the-queens-gambit  301
+
+# Tumblr utility pages
+/random  /  302
+/page/*  /archive  301
+/rss  /rss.xml  301
