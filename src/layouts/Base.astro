@@ -84,14 +84,13 @@ const isCurrent = (href: string) => (href === '/' ? isHome : path === href || pa
       </main>
 
       <footer class="footer">
-        <div>© {SITE.title} {SITE.established}–{new Date().getFullYear()} · Written by {SITE.author} · Made with love in Lucknow</div>
+        <div>© {SITE.title} · Since {SITE.established} · Written by {SITE.author} · Made with love in Lucknow</div>
         <div class="links">
           {SITE.social.map((s) => (
             <a href={s.href} rel="noopener me">
               {s.label}
             </a>
           ))}
-          <a href="/rss.xml">RSS</a>
         </div>
       </footer>
     </div>

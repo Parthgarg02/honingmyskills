@@ -11,7 +11,7 @@ export const SITE = {
   subscribeUrl: 'https://eepurl.com/hnOFaf',
   social: [
     { label: 'Facebook', href: 'https://www.facebook.com/parth.garg.21' },
-    { label: 'Twitter', href: 'https://twitter.com/ParthG02' },
+    { label: 'X', href: 'https://x.com/ParthG02' },
     { label: 'Instagram', href: 'https://www.instagram.com/parth_garg02/' },
   ],
 };
